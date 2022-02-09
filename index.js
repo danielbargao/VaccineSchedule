@@ -48,9 +48,8 @@ function vacColor(age, gender) {
     else if (age > 40){
         return astroList[i].vac = 'purple';
         }
-    else { return null}
-            
-    }
+    else { return null}           
+}
 function checkObj(){
         var len = astroList.length; //getting the hole astroList with only id and name information
         for ( var i = 0; i < len; i++) {
@@ -87,27 +86,27 @@ function change() {//Didn't make the function change() adaptative for time consu
 function yes() { 
     if (i >= 12 && i<24){ 
         console.log (i)
-        astroList[(i-12)].vac = vacColor();
+        astroList[(i-12)].vac = vacColor(astroList[i].age, astroList[i].gender);
         document.getElementById(i).style.background = "green";
         astroList[(i-12)].ino = true;  
     } else if (i >= 24 && i<35){ 
         console.log (i)
-        astroList[(i-24)].vac = vacColor();
+        astroList[(i-24)].vac = vacColor(astroList[i].age, astroList[i].gender);
         document.getElementById(i).style.background = "green";
         astroList[(i-24)].ino = true;  
     } else if (i >= 35 && i<48){ 
         console.log (i)
-        astroList[(i-35)].vac = vacColor();
+        astroList[(i-35)].vac = vacColor(astroList[i].age, astroList[i].gender);
         document.getElementById(i).style.background = "green";
         astroList[(i-35)].ino = true;  
     } else if (i >= 48 && i<60){ 
         console.log (i)
-        astroList[(i-48)].vac = vacColor();
+        astroList[(i-48)].vac = vacColor(astroList[i].age, astroList[i].gender);
         document.getElementById(i).style.background = "green";
         astroList[(i-48)].ino = true;  
     }
     else {
-        astroList[i].vac = vacColor();
+        astroList[i].vac = vacColor(astroList[i].age, astroList[i].gender);
         document.getElementById(i).style.background = "green";
         astroList[i].ino = true; 
     } 
@@ -117,7 +116,5 @@ function no() {
     document.getElementById(i).style.background = "red";
     document.getElementById((i + 12)).innerHTML = x;
     alert('Email sent to daniel.bruno.duarte.bargao@gmail.com \n Message: \n Your apointment was rescheduled to tomorow at the same time');
+    checkObj()
 }
-
-    
-
