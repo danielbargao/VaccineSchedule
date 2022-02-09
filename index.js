@@ -1,5 +1,5 @@
 var astroList= [
-    {"id":0, "name": "Daniel Bargão", "gender": "male", "age": 22, "email": "daniel.bruno.duarte.bargao@gmail.com", "ino": false, "vac": "s"},
+    {"id":0, "name": "Daniel Bargão", "gender": "male", "age": 22, "email": "daniel.bruno.duarte.bargao@gmail.com", "ino": false, "vac": ""},
     {"id":1, "name": "Vladimir Komarov", "gender": "male", "age": 30, "email": "daniel.bruno.duarte.bargao@gmail.com", "ino": false, "vac": ""},
     {"id":2, "name": "William Anders", "gender": "male", "age": 25, "email": "daniel.bruno.duarte.bargao@gmail.com", "ino": false, "vac": ""},
     {"id":3, "name": "Neil Armstrong", "gender": "male", "age": 92, "email": "daniel.bruno.duarte.bargao@gmail.com", "ino": false, "vac": ""},
@@ -10,13 +10,36 @@ var astroList= [
     {"id":8, "name": "Eileen Collins", "gender": "female", "age": 46, "email": "daniel.bruno.duarte.bargao@gmail.com", "ino": false, "vac": ""},
     ];
 
-    var i = 0;
-    var age = astroList.age;
-    var gender = astroList.gender;
+    var i = -1;
+    var age = astroList[0].age;
+    var gender = astroList[0].gender;
+    var elem = document.getElementById("myButton1");
+    var x = 00;
+    var y = 9;
+    var z = 'Monday';
+
+function hours(){
+    if(y==13 && x==00){
+        x=20;
+        z = 'Tuesday';
+        y=9
+    }
+    else{
+        if (x==40){
+            x=00;
+            y++
+        }
+        else {
+            x = x + 20
+        }
+
+    }
+    elem.value = z + ' - ' + y + 'h' + x 
+
+}
 
 function vacColor(age, gender) { 
     if (age <= 40 && gender == 'male'){
-        console.log('potato')
         return astroList[i].vac = 'red';
         }
     else if (age <= 40 && gender == 'female'){
@@ -36,219 +59,52 @@ function checkObj(){
     }
 }
 function change() {//Didn't make the function change() adaptative for time consuming purposes, didn't came to mind how to do it on the spot without research and had no internet. Due to Vodafone ciber attack
-
-    var elem = document.getElementById("myButton1");
     i++;
-
-    if (elem.value=="Monday-9h00") {
-        elem.value = "Monday-9h20";
-        document.getElementById("1").innerHTML = 'Pacient ' + (i+1) + ' appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
-        checkObj()
+    if(document.getElementById(i).innerHTML === ''){
+        hours();
     }
-    else if (elem.value == "Monday-9h20") {
-        elem.value = "Monday-9h40";   
-        document.getElementById("2").innerHTML = 'Pacient 3 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
+    else{    
+        hours();
+        if(i<12){
+            a=-12
+            document.getElementById(i).innerHTML = 'Pacient ' + (i+1) + ' appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">';
+        }else if(i>=12 && i<24){
+            document.getElementById(i).innerHTML = 'Pacient ' + (i+a+1) + ' appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">';
+            b=-24
+        }else if(i>=24 && i<35){
+            c=-35
+            document.getElementById(i).innerHTML = 'Pacient ' + (i+b+1) + ' appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">';
+        }else if(i>=35 && i<48){
+            d=-48
+            document.getElementById(i).innerHTML = 'Pacient ' + (i+c) + ' appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">';
+        }
+        else {
+            document.getElementById(i).innerHTML = 'Pacient ' + (i+d+1) + ' appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">';
+        }
     }
-    else if (elem.value == "Monday-9h40") {
-        elem.value = "Monday-10h00";
-        document.getElementById("3").innerHTML = 'Pacient 4 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'    
-    }
-    else if (elem.value == "Monday-10h00") {
-        elem.value = "Monday-10h20";
-        document.getElementById("4").innerHTML = 'Pacient 5 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
-    }
-    else if (elem.value == "Monday-10h20") {
-        elem.value = "Monday-10h40";
-        document.getElementById("5").innerHTML = 'Pacient 6 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
-    }
-    else if (elem.value == "Monday-10h40") {
-        elem.value = "Monday-11h00";
-        document.getElementById("6").innerHTML = 'Pacient 7 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
-    }
-    else if (elem.value == "Monday-11h00") {
-        elem.value = "Monday-11h20";        
-        document.getElementById("7").innerHTML = 'Pacient 8 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
-    }
-    else if (elem.value == "Monday-11h20") {
-        elem.value = "Monday-11h40";
-        document.getElementById("8").innerHTML = 'Pacient 9 appeard?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo">'
-    }
-    else if (elem.value == "Monday-11h40") {
-        elem.value = "Monday-12h00";
-        checkObj()
-    }
-    else if (elem.value == "Monday-12h00") {
-        elem.value = "Monday-12h20";
-    }
-    else if (elem.value == "Monday-12h20") {
-        elem.value = "Monday-12h40";
-    }
-    else if (elem.value == "Monday-12h40") {
-        elem.value = "Monday-13h00";
-    }
-    else if (elem.value == "Monday-13h00") {
-        elem.value = "Tuesday-9h00";
-    }
-    else if (elem.value == "Tuesday-9h00") {
-        elem.value = "Tuesday-9h20";
-    }
-    else if (elem.value == "Tuesday-9h20") {
-        elem.value = "Tuesday-9h40";
-    }
-    else if (elem.value == "Tuesday-9h40") {
-        elem.value = "Tuesday-10h00";
-    }
-    else if (elem.value == "Tuesday-10h00") {
-        elem.value = "Tuesday-10h20";
-    }
-    else if (elem.value == "Tuesday-10h20") {
-        elem.value = "Tuesday-10h40";
-    }
-    else if (elem.value == "Tuesday-10h40") {
-        elem.value = "Tuesday-11h00";
-    }
-    else if (elem.value == "Tuesday-11h00") {
-        elem.value = "Tuesday-11h20";
-    }
-    else if (elem.value == "Tuesday-11h20") {
-        elem.value = "Tuesday-11h40";
-    }
-    else if (elem.value == "Tuesday-11h40") {
-        elem.value = "Tuesday-12h00";
-    }
-    else if (elem.value == "Tuesday-12h00") {
-        elem.value = "Tuesday-12h20";
-    }
-    else if (elem.value == "Tuesday-12h20") {
-        elem.value = "Tuesday-12h40";
-    }
-    else if (elem.value == "Tuesday-12h40") {
-        elem.value = "Tuesday-13h00";
-    }
-    else if (elem.value == "Tuesday-13h00") {
-        elem.value = "Wednesday-9h00";
-    }
-    else if (elem.value == "Wednesday-9h00") {
-        elem.value = "Wednesday-9h20";
-    }
-    else if (elem.value == "Wednesday-9h20") {
-        elem.value = "Wednesday-9h40";
-    }
-    else if (elem.value == "Wednesday-9h40") {
-        elem.value = "Wednesday-10h00";
-    }
-    else if (elem.value == "Wednesday-10h00") {
-        elem.value = "Wednesday-10h20";
-    }
-    else if (elem.value == "Wednesday-10h20") {
-        elem.value = "Wednesday-10h40";
-    }
-    else if (elem.value == "Wednesday-10h40") {
-        elem.value = "Wednesday-11h00";
-    }
-    else if (elem.value == "Wednesday-11h00") {
-        elem.value = "Wednesday-11h20";
-    }
-    else if (elem.value == "Wednesday-11h20") {
-        elem.value = "Wednesday-11h40";
-    }
-    else if (elem.value == "Wednesday-11h40") {
-        elem.value = "Wednesday-12h00";
-    }
-    else if (elem.value == "Wednesday-12h00") {
-        elem.value = "Wednesday-12h20";
-    }
-    else if (elem.value == "Wednesday-12h20") {
-        elem.value = "Wednesday-12h40";
-    }
-    else if (elem.value == "Wednesday-12h40") {
-        elem.value = "Wednesday-13h00";
-    }
-    else if (elem.value == "Wednesday-13h00") {
-        elem.value = "Thursday-9h00";
-    }
-    else if (elem.value == "Thursday-9h00") {
-        elem.value = "Thursday-9h20";
-    }
-    else if (elem.value == "Thursday-9h20") {
-        elem.value = "Thursday-9h40";
-    }
-    else if (elem.value == "Thursday-9h40") {
-        elem.value = "Thursday-10h00";
-    }
-    else if (elem.value == "Thursday-10h00") {
-        elem.value = "Thursday-10h20";
-    }
-    else if (elem.value == "Thursday-10h20") {
-        elem.value = "Thursday-10h40";
-    }
-    else if (elem.value == "Thursday-10h40") {
-        elem.value = "Thursday-11h00";
-    }
-    else if (elem.value == "Thursday-11h00") {
-        elem.value = "Thursday-11h20";
-    }
-    else if (elem.value == "Thursday-11h20") {
-        elem.value = "Thursday-11h40";
-    }
-    else if (elem.value == "Thursday-11h40") {
-        elem.value = "Thursday-12h00";
-    }
-    else if (elem.value == "Thursday-12h00") {
-        elem.value = "Thursday-12h20";
-    }
-    else if (elem.value == "Thursday-12h20") {
-        elem.value = "Thursday-12h40";
-    }
-    else if (elem.value == "Thursday-12h40") {
-        elem.value = "Thursday-13h00";
-    }
-    else if (elem.value == "Thursday-13h00") {
-        elem.value = "Friday-9h00";
-    }
-    else if (elem.value == "Friday-9h00") {
-        elem.value = "Friday-9h20";
-    }
-    else if (elem.value == "Friday-9h20") {
-        elem.value = "Friday-9h40";
-    }
-    else if (elem.value == "Friday-9h40") {
-        elem.value = "Friday-10h00";
-    }
-    else if (elem.value == "Friday-10h00") {
-        elem.value = "Friday-10h20";
-    }
-    else if (elem.value == "Friday-10h20") {
-        elem.value = "Friday-10h40";
-    }
-    else if (elem.value == "Friday-10h40") {
-        elem.value = "Friday-11h00";
-    }
-    else if (elem.value == "Friday-11h00") {
-        elem.value = "Friday-11h20";
-    }
-    else if (elem.value == "Friday-11h20") {
-        elem.value = "Friday-11h40";
-    }
-    else if (elem.value == "Friday-11h40") {
-        elem.value = "Friday-12h00";
-    }
-    else if (elem.value == "Friday-12h00") {
-        elem.value = "Friday-12h20";
-    }
-    else if (elem.value == "Friday-12h20") {
-        elem.value = "Friday-12h40";
-    }
-    else if (elem.value == "Friday-12h40") {
-        elem.value = "Friday-13h00";
-    }    
-} 
-
-function yes(color) { 
-    if (i >= 13){ 
-        astroList[(i-13)].vac = vacColor();
+}   
+    
+function yes() { 
+    if (i >= 12 && i<24){ 
+        console.log (i)
+        astroList[(i-12)].vac = vacColor();
         document.getElementById(i).style.background = "green";
-        astroList[(i-13)].ino = true;  
+        astroList[(i-12)].ino = true;  
+    } else if (i >= 24 && i<35){ 
+        console.log (i)
+        astroList[(i-24)].vac = vacColor();
+        document.getElementById(i).style.background = "green";
+        astroList[(i-24)].ino = true;  
+    } else if (i >= 35 && i<48){ 
+        console.log (i)
+        astroList[(i-35)].vac = vacColor();
+        document.getElementById(i).style.background = "green";
+        astroList[(i-35)].ino = true;  
+    } else if (i >= 48 && i<60){ 
+        console.log (i)
+        astroList[(i-48)].vac = vacColor();
+        document.getElementById(i).style.background = "green";
+        astroList[(i-48)].ino = true;  
     }
     else {
         astroList[i].vac = vacColor();
@@ -256,18 +112,19 @@ function yes(color) {
         astroList[i].ino = true; 
     } 
 }
-function no(color) {
-   
+function no() {
+    if (i >= 13){
+        var x = document.getElementById(i).innerHTML;
+        document.getElementById(i).style.background = "red";
+        document.getElementById((i + 12)).innerHTML = x;
+        alert('Email sent to daniel.bruno.duarte.bargao@gmail.com \n Message: \n Your apointment was rescheduled to tomorow at the same time');
+    }
+    else {
     var x = document.getElementById(i).innerHTML;
     document.getElementById(i).style.background = "red";
-    document.getElementById((i + 13)).innerHTML = x;
+    document.getElementById((i + 12)).innerHTML = x;
     alert('Email sent to daniel.bruno.duarte.bargao@gmail.com \n Message: \n Your apointment was rescheduled to tomorow at the same time');
+    }
+
+    
 }
-
-
-
-    
-
-    
-    //I opted to give only 1 kind of vaccine to each category (for simplicity) and not give the choise to the nurse nor choose with stock in mind, cause we dont have a stock count
-
