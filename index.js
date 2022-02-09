@@ -113,18 +113,11 @@ function yes() {
     } 
 }
 function no() {
-    if (i >= 13){
-        var x = document.getElementById(i).innerHTML;
-        document.getElementById(i).style.background = "red";
-        document.getElementById((i + 12)).innerHTML = x;
-        alert('Email sent to daniel.bruno.duarte.bargao@gmail.com \n Message: \n Your apointment was rescheduled to tomorow at the same time');
-    }
-    else {
     var x = document.getElementById(i).innerHTML;
     document.getElementById(i).style.background = "red";
     document.getElementById((i + 12)).innerHTML = x;
     alert('Email sent to daniel.bruno.duarte.bargao@gmail.com \n Message: \n Your apointment was rescheduled to tomorow at the same time');
-    }
+}
 
     
-}
+
