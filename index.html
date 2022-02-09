@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-gap: 5px;
+  background-color: #232527;
+  padding: 10px;
+}
+	
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.767);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
+}
+
+
+</style>
+</head>
+<body>
+<h1><div>Nurse Schedule</div></h1>
+<h3><input onclick="change()" type="button" value="Monday-9h00" id="myButton1"></input> <<<-press the buttton to simulate hours passing</h3>
+
+<div class="grid-container">
+  <div class="item1">Hours</div>
+  <div class="item2">Monday</div>
+  <div class="item3">Tuesday</div>  
+  <div class="item4">Wednesday</div>
+  <div class="item5">Thursday</div>
+  <div class="item6">Friday</div>
+  <div class="item7">9h00 - 9h20</div>
+  <div class="item8" id="0">Pacient 1 Apeared?<input onclick="yes()" type="button" value="Yes" id="myButtonYes"><input onclick="no()" type="button" value="No" id="myButtonNo"></div>  
+  <div class="item9" id="13"></div> 
+  <div class="item10" id="26"></div> 
+  <div class="item11" id="39"></div> 
+  <div class="item12" id="52"></div> 
+  <div class="item13">9h20 - 9h40</div> 
+  <div class="item14" id="1">Pacient 2</div> 
+  <div class="item15" id="14"></div> 
+  <div class="item16" id="27"></div> 
+  <div class="item17" id="40"></div> 
+  <div class="item18" id="53"></div> 
+  <div class="item19">9h40 - 10h00</div> 
+  <div class="item20" id="2">Pacient 3</div> 
+  <div class="item21" id="15"></div> 
+  <div class="item22" id="28"></div> 
+  <div class="item23" id="41"></div> 
+  <div class="item24" id="54"></div> 
+  <div class="item25">10h00 - 10h20</div> 
+  <div class="item26" id="3">Pacient 4</div> 
+  <div class="item27" id="16"></div> 
+  <div class="item28" id="29"></div> 
+  <div class="item29" id="42"></div> 
+  <div class="item30" id="55"></div> 
+  <div class="item31">10h20 - 10h40</div> 
+  <div class="item32" id="4">Pacient 5</div> 
+  <div class="item33" id="17"></div> 
+  <div class="item34" id="30"></div> 
+  <div class="item35" id="43"></div> 
+  <div class="item36" id="56"></div> 
+  <div class="item37">10h40 - 11h00</div> 
+  <div class="item38" id="5">Pacient 6</div> 
+  <div class="item39" id="18"></div> 
+  <div class="item40" id="31"></div> 
+  <div class="item41" id="44"></div> 
+  <div class="item42" id="57"></div> 
+  <div class="item43">11h00 - 11h20</div> 
+  <div class="item44" id="6">Pacient 7</div> 
+  <div class="item45" id="19"></div> 
+  <div class="item46" id="32"></div> 
+  <div class="item47" id="45"></div> 
+  <div class="item48" id="58"></div> 
+  <div class="item49">11h20 - 11h40</div> 
+  <div class="item50" id="7">Pacient 8</div> 
+  <div class="item51" id="20"></div> 
+  <div class="item52" id="33"></div> 
+  <div class="item53" id="46"></div> 
+  <div class="item54" id="59"></div> 
+  <div class="item55">11h40 - 12h00</div> 
+  <div class="item56" id="8">Pacient 9</div> 
+  <div class="item57" id="21"></div> 
+  <div class="item58" id="34"></div> 
+  <div class="item58" id="47"></div> 
+  <div class="item59" id="60"></div> 
+  <div class="item60">12h00 - 12h20</div> 
+  <div class="item61" id="9"></div> 
+  <div class="item62" id="22"></div> 
+  <div class="item63" id="35"></div> 
+  <div class="item64" id="48"></div> 
+  <div class="item65" id="61"></div> 
+  <div class="item66">12h20 - 12h40</div> 
+  <div class="item67" id="10"></div> 
+  <div class="item68" id="23"></div> 
+  <div class="item69" id="36"></div> 
+  <div class="item70" id="49"></div> 
+  <div class="item71" id="62"></div> 
+  <div class="item72">12h40 - 13h00</div> 
+  <div class="item73" id="11"></div> 
+  <div class="item74" id="24"></div> 
+  <div class="item75" id="37"></div> 
+  <div class="item76" id="50"></div> 
+  <div class="item77" id="63"></div> 
+
+</div>
+
+<script src="index.js"></script>
+
+</body>
+</html>
